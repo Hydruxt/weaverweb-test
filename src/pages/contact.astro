@@ -1,0 +1,210 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const phoneDisplay = '(512) 555-0199';
+const phoneTel = '+15125550199';
+const email = 'marcus@brightflowplumbing.com';
+
+// Formspree placeholder — replace REPLACE_ME with real form ID before launch (see README)
+const formAction = 'https://formspree.io/f/REPLACE_ME';
+
+const serviceOptions = [
+  'Drain cleaning',
+  'Leak detection / repair',
+  'Water heater',
+  'Fixture install',
+  'Emergency repair',
+  'Clog removal',
+  'Other / not sure',
+];
+
+const timeOptions = [
+  'ASAP / emergency',
+  'Today',
+  'Tomorrow',
+  'This week',
+  'Flexible — mornings',
+  'Flexible — afternoons',
+  'Flexible — evenings',
+];
+---
+
+<BaseLayout
+  title="Contact & Book Service"
+  description="Request plumbing service from Bright Flow Plumbing in Austin. Book online or call. Reach Marcus at marcus@brightflowplumbing.com."
+>
+  <section class="bg-brand-900 text-white">
+    <div class="section py-14 sm:py-16">
+      <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Contact &amp; book</h1>
+      <p class="mt-3 max-w-2xl text-lg text-brand-100">
+        Tell us what’s going on and when you need help. We’ll follow up to confirm timing and next
+        steps.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid gap-10 lg:grid-cols-5">
+      <!-- Form -->
+      <div class="lg:col-span-3">
+        <h2 class="text-xl font-bold text-brand-950">Request service</h2>
+        <p class="mt-2 text-sm text-slate-600">
+          Fields marked <span class="font-semibold text-brand-800">*</span> are required. Submissions
+          go to Bright Flow for scheduling — not a call center.
+        </p>
+
+        <!--
+          Formspree: replace REPLACE_ME in formAction (frontmatter) with your form ID.
+          Until then, the form will not deliver — use email/phone CTAs for live demos if needed.
+        -->
+        <form
+          class="mt-6 space-y-5"
+          action={formAction}
+          method="POST"
+          accept-charset="UTF-8"
+        >
+          <input type="hidden" name="_subject" value="Bright Flow Plumbing — service request" />
+          <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" />
+
+          <div>
+            <label for="name" class="block text-sm font-medium text-slate-800">Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="name"
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 shadow-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600"
+            />
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="phone" class="block text-sm font-medium text-slate-800">Phone *</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                autocomplete="tel"
+                class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 shadow-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-slate-800">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 shadow-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="service" class="block text-sm font-medium text-slate-800"
+              >Service needed *</label
+            >
+            <select
+              id="service"
+              name="service"
+              required
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 shadow-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600"
+            >
+              <option value="" disabled selected>Select a service</option>
+              {serviceOptions.map((opt) => <option value={opt}>{opt}</option>)}
+            </select>
+          </div>
+
+          <div>
+            <label for="preferred_time" class="block text-sm font-medium text-slate-800"
+              >Preferred time *</label
+            >
+            <select
+              id="preferred_time"
+              name="preferred_time"
+              required
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 shadow-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600"
+            >
+              <option value="" disabled selected>When do you need help?</option>
+              {timeOptions.map((opt) => <option value={opt}>{opt}</option>)}
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-medium text-slate-800">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              placeholder="Describe the issue, your address/area, and any timing constraints."
+              class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2.5 text-slate-900 shadow-sm focus:border-brand-600 focus:ring-1 focus:ring-brand-600"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary w-full sm:w-auto">Submit request</button>
+          <p class="text-xs text-slate-500">
+            By submitting, you agree we may contact you about this service request. We don’t sell your
+            info.
+          </p>
+        </form>
+
+        <p class="mt-6 text-sm text-slate-600">
+          Prefer email directly?
+          <a class="font-semibold text-brand-700 underline" href={`mailto:${email}`}>{email}</a>
+          <!-- Mailto fallback if Formspree is not configured yet -->
+          · or
+          <a
+            class="font-semibold text-brand-700 underline"
+            href={`mailto:${email}?subject=Bright%20Flow%20Plumbing%20service%20request`}
+            >compose a message</a
+          >.
+        </p>
+      </div>
+
+      <!-- Sidebar contact -->
+      <aside class="lg:col-span-2">
+        <div class="rounded-xl border border-brand-200 bg-brand-50 p-6">
+          <h2 class="text-lg font-bold text-brand-950">Call or email</h2>
+          <p class="mt-2 text-sm text-slate-700">
+            Emergencies: call first. Non-urgent jobs: the form works great and gives us details
+            upfront.
+          </p>
+          <ul class="mt-6 space-y-4 text-sm">
+            <li>
+              <p class="font-medium text-slate-500">Phone (demo)</p>
+              <!-- TODO: Replace demo phone before launch -->
+              <a href={`tel:${phoneTel}`} class="text-lg font-bold text-brand-800 hover:underline"
+                >{phoneDisplay}</a
+              >
+              <p class="mt-1 text-xs text-amber-800">Phone number to be confirmed before launch.</p>
+            </li>
+            <li>
+              <p class="font-medium text-slate-500">Email</p>
+              <a href={`mailto:${email}`} class="font-semibold text-brand-800 hover:underline"
+                >{email}</a
+              >
+            </li>
+            <li>
+              <p class="font-medium text-slate-500">Area</p>
+              <p class="text-slate-800">Austin metro, Texas</p>
+            </li>
+          </ul>
+          <a href={`tel:${phoneTel}`} class="btn-call mt-6 w-full">Call Now</a>
+        </div>
+
+        <div class="mt-6 rounded-xl border border-slate-200 bg-white p-6 text-sm text-slate-600">
+          <p class="font-semibold text-brand-900">What happens next?</p>
+          <ol class="mt-3 list-decimal space-y-2 pl-5">
+            <li>We review your request and service area.</li>
+            <li>You get a call or email with timing and next steps.</li>
+            <li>We schedule, diagnose on site, and complete the work.</li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
