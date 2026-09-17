@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const phoneTel = '+15125550199';
+const phoneDisplay = '(512) 555-0199';
+
+const featuredServices = [
+  {
+    title: 'Drain Cleaning',
+    blurb:
+      'Slow sinks, tubs, and main lines cleared with camera-ready diagnostics when needed — not just a temporary snake-and-hope.',
+    href: '/services#drain-cleaning',
+  },
+  {
+    title: 'Leak Detection & Repair',
+    blurb:
+      'Find hidden leaks before they wreck floors and drywall. We locate, explain options, and fix with clear pricing.',
+    href: '/services#leak-detection',
+  },
+  {
+    title: 'Water Heaters',
+    blurb:
+      'Install, repair, and replace tank and tankless units so you get hot water back without the runaround.',
+    href: '/services#water-heaters',
+  },
+  {
+    title: 'Emergency Repairs',
+    blurb:
+      'Burst pipes, sewage backups, and no-hot-water nights. Call when it cannot wait — we prioritize true emergencies.',
+    href: '/services#emergency',
+  },
+];
+
+const proofPoints = [
+  {
+    title: 'Licensed & insured',
+    text: 'Work performed to code with the protection you expect from a local Austin plumber.',
+  },
+  {
+    title: 'Clear pricing before we start',
+    text: 'You know what the job costs before tools come out. No surprise add-ons at the door.',
+  },
+  {
+    title: 'Built for Google leads',
+    text: 'When you find us on Maps or search, we answer, show up, and close the loop — not bury you in phone trees.',
+  },
+  {
+    title: 'Same-day options when available',
+    text: 'Many Austin-area jobs can be scheduled the same day. Ask when you book.',
+  },
+];
+---
+
+<BaseLayout
+  title="Bright Flow Plumbing | Austin TX"
+  description="Reliable plumbing for Austin homes and businesses. Drain cleaning, leak repair, water heaters, and emergency service. Book online or call Bright Flow Plumbing."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-900 via-brand-800 to-teal-dark text-white">
+    <div class="section relative py-16 sm:py-20 lg:py-24">
+      <p class="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-200">
+        Austin, Texas · Local &amp; owner-operated
+      </p>
+      <h1 class="max-w-3xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+        Reliable plumbing for Austin homes &amp; businesses
+      </h1>
+      <p class="mt-4 max-w-2xl text-lg text-brand-100 sm:text-xl">
+        Fast response from a licensed local plumber. Clear pricing, straightforward work, and a
+        booking path that gets you help — not a runaround.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <a href="/contact" class="btn-primary bg-white text-brand-900 hover:bg-brand-50">
+          Book Service
+        </a>
+        <!-- TODO: Replace demo phone before launch -->
+        <a href={`tel:${phoneTel}`} class="btn-call">
+          Call Now · {phoneDisplay}
+        </a>
+      </div>
+      <p class="mt-4 text-sm text-brand-200">
+        Prefer email? <a class="underline hover:text-white" href="mailto:marcus@brightflowplumbing.com"
+          >marcus@brightflowplumbing.com</a
+        >
+      </p>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <section class="border-b border-slate-200 bg-white" aria-label="Trust highlights">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-4 py-4 text-center text-sm font-semibold text-brand-800 sm:px-6 lg:justify-between lg:px-8">
+      <span>Licensed</span>
+      <span class="hidden text-slate-300 lg:inline" aria-hidden="true">·</span>
+      <span>Insured</span>
+      <span class="hidden text-slate-300 lg:inline" aria-hidden="true">·</span>
+      <span>Same-day options</span>
+      <span class="hidden text-slate-300 lg:inline" aria-hidden="true">·</span>
+      <span>Austin metro</span>
+    </div>
+  </section>
+
+  <!-- Featured services -->
+  <section class="section">
+    <div class="max-w-2xl">
+      <h2 class="text-2xl font-bold text-brand-950 sm:text-3xl">Featured services</h2>
+      <p class="mt-2 text-slate-600">
+        The jobs Austin homeowners and small businesses call us for most — from clogged drains to
+        water heater swaps.
+      </p>
+    </div>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2">
+      {
+        featuredServices.map((s) => (
+          <a href={s.href} class="card group block no-underline">
+            <h3 class="text-lg font-semibold text-brand-900 group-hover:text-brand-700">{s.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">{s.blurb}</p>
+            <span class="mt-4 inline-flex text-sm font-semibold text-brand-700">
+              Learn more →
+            </span>
+          </a>
+        ))
+      }
+    </div>
+    <div class="mt-8">
+      <a href="/services" class="btn-secondary">See all services</a>
+    </div>
+  </section>
+
+  <!-- Why Bright Flow / proof points (no fake reviews) -->
+  <section class="bg-white border-y border-slate-200">
+    <div class="section">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl font-bold text-brand-950 sm:text-3xl">What we stand for</h2>
+        <p class="mt-2 text-slate-600">
+          Proof points you can hold us to — not star ratings we invented for the web.
+        </p>
+      </div>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2">
+        {
+          proofPoints.map((p) => (
+            <div class="rounded-xl border border-brand-100 bg-brand-50/50 p-6">
+              <h3 class="font-semibold text-brand-900">{p.title}</h3>
+              <p class="mt-2 text-sm text-slate-700">{p.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section">
+    <h2 class="text-2xl font-bold text-brand-950 sm:text-3xl">How booking works</h2>
+    <ol class="mt-8 grid gap-6 sm:grid-cols-3">
+      <li class="card">
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brand-700 text-sm font-bold text-white"
+          >1</span
+        >
+        <h3 class="mt-3 font-semibold text-brand-900">Tell us what is wrong</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          Use the request form or call. Share the issue, address, and when you need help.
+        </p>
+      </li>
+      <li class="card">
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brand-700 text-sm font-bold text-white"
+          >2</span
+        >
+        <h3 class="mt-3 font-semibold text-brand-900">Get a clear next step</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          We confirm availability, pricing approach, and whether it is same-day or scheduled.
+        </p>
+      </li>
+      <li class="card">
+        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-brand-700 text-sm font-bold text-white"
+          >3</span
+        >
+        <h3 class="mt-3 font-semibold text-brand-900">We show up and fix it</h3>
+        <p class="mt-2 text-sm text-slate-600">
+          On-site diagnosis, options explained, work completed — then you are back to normal.
+        </p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Service area -->
+  <section class="bg-brand-50 border-y border-brand-100">
+    <div class="section">
+      <h2 class="text-2xl font-bold text-brand-950 sm:text-3xl">Austin metro service area</h2>
+      <p class="mt-3 max-w-3xl text-slate-700">
+        Bright Flow Plumbing serves Austin and surrounding communities including Round Rock, Cedar
+        Park, Pflugerville, Leander, and nearby neighborhoods. If you are unsure whether we cover
+        your address, request service and we will confirm quickly.
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section text-center">
+    <h2 class="text-2xl font-bold text-brand-950 sm:text-3xl">Need a plumber today?</h2>
+    <p class="mx-auto mt-3 max-w-xl text-slate-600">
+      Book a service request online or call now. Emergencies get priority — do not wait on a slow
+      drain that turns into a flood.
+    </p>
+    <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a href="/contact" class="btn-primary">Request Service</a>
+      <a href={`tel:${phoneTel}`} class="btn-call">Call {phoneDisplay}</a>
+    </div>
+  </section>
+</BaseLayout>
