@@ -1,0 +1,57 @@
+---
+const year = new Date().getFullYear();
+const phoneDisplay = '(512) 555-0199';
+const phoneTel = '+15125550199';
+---
+
+<footer class="border-t border-slate-200 bg-brand-950 text-slate-200">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-3 lg:px-8">
+    <div>
+      <p class="text-lg font-bold text-white">Bright Flow Plumbing</p>
+      <p class="mt-2 text-sm text-slate-300">
+        Owner-operated plumbing for Austin homes and businesses. Clear pricing, fast response, and
+        work done right the first time.
+      </p>
+      <p class="mt-4 text-xs text-slate-400">
+        Serving Austin metro — including Round Rock, Cedar Park, Pflugerville, and nearby areas.
+      </p>
+    </div>
+
+    <div>
+      <p class="font-semibold text-white">Quick links</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href="/" class="hover:text-white">Home</a></li>
+        <li><a href="/services" class="hover:text-white">Services</a></li>
+        <li><a href="/about" class="hover:text-white">About</a></li>
+        <li><a href="/contact" class="hover:text-white">Contact / Book</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="font-semibold text-white">Get in touch</p>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li>
+          <!-- TODO: Replace demo phone before launch -->
+          <a href={`tel:${phoneTel}`} class="hover:text-white">{phoneDisplay}</a>
+        </li>
+        <li>
+          <a href="mailto:marcus@brightflowplumbing.com" class="hover:text-white"
+            >marcus@brightflowplumbing.com</a
+          >
+        </li>
+        <li class="text-slate-400">Austin, Texas</li>
+      </ul>
+      <p class="mt-4 text-xs text-amber-200/90">
+        Phone number to be confirmed — demo number shown for preview.
+      </p>
+    </div>
+  </div>
+
+  <div class="border-t border-brand-900 px-4 py-4 text-center text-xs text-slate-400 sm:px-6">
+    <p>© {year} Bright Flow Plumbing. All rights reserved.</p>
+    <p class="mt-1">
+      Preview website build — content and contact details subject to owner confirmation before public
+      launch.
+    </p>
+  </div>
+</footer>
