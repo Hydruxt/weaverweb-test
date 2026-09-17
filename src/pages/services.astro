@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const phoneTel = '+15125550199';
+
+const services = [
+  {
+    id: 'drain-cleaning',
+    title: 'Drain Cleaning',
+    benefit:
+      'Restore full flow in kitchen, bath, and laundry drains. We clear grease, hair, roots, and buildup — and tell you if the line needs more than a cleanout.',
+    points: [
+      'Sinks, showers, tubs, and floor drains',
+      'Main line clearing when backups hit multiple fixtures',
+      'Camera inspection available when the cause is unclear',
+    ],
+  },
+  {
+    id: 'leak-detection',
+    title: 'Leak Detection & Repair',
+    benefit:
+      'Stop water damage early. We track down slab leaks, supply line drips, and fixture leaks, then repair with options that fit your home and budget.',
+    points: [
+      'Visible and hidden leak diagnosis',
+      'Supply line and fixture repairs',
+      'Honest recommendation: repair vs. replace',
+    ],
+  },
+  {
+    id: 'water-heaters',
+    title: 'Water Heater Install & Repair',
+    benefit:
+      'No hot water? Strange noises? We service tank and tankless units, handle code-compliant installs, and help you pick the right size for Austin demand.',
+    points: [
+      'Tank and tankless install / replacement',
+      'Thermostat, element, and anode service',
+      'Expansion tanks and code upgrades as needed',
+    ],
+  },
+  {
+    id: 'fixtures',
+    title: 'Fixture Installation',
+    benefit:
+      'New faucets, toilets, disposals, and shower valves installed cleanly — so they look right and don’t leak behind the wall.',
+    points: [
+      'Toilets, faucets, and shower/tub valves',
+      'Garbage disposals and supply stop replacements',
+      'Bring-your-own fixture or we can source',
+    ],
+  },
+  {
+    id: 'emergency',
+    title: 'Emergency Repairs',
+    benefit:
+      'When water is going where it shouldn’t, speed matters. Burst lines, overflowing toilets, and sewage issues get urgent attention.',
+    points: [
+      'Shutoff guidance while we en route',
+      'Priority scheduling for active flooding / backups',
+      'Stabilize first, then permanent fix',
+    ],
+  },
+  {
+    id: 'clog-removal',
+    title: 'Clog Removal',
+    benefit:
+      'Stubborn clogs that plungers won’t touch. We clear toilets, branch lines, and stubborn blockages without guesswork.',
+    points: [
+      'Toilet and branch-line clogs',
+      'Safe clearing for older homes when possible',
+      'Advice to reduce repeat clogs',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Plumbing Services in Austin"
+  description="Drain cleaning, leak detection, water heaters, fixture install, clog removal, and emergency plumbing from Bright Flow Plumbing in Austin, TX."
+>
+  <section class="bg-brand-900 text-white">
+    <div class="section py-14 sm:py-16">
+      <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl">Plumbing services</h1>
+      <p class="mt-3 max-w-2xl text-lg text-brand-100">
+        Practical fixes for Austin homes and small businesses — priced clearly, scheduled without the
+        runaround.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/contact" class="btn-primary bg-white text-brand-900 hover:bg-brand-50"
+          >Book a service</a
+        >
+        <a href={`tel:${phoneTel}`} class="btn-call">Call Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section space-y-8">
+    {
+      services.map((s) => (
+        <article id={s.id} class="card scroll-mt-28">
+          <h2 class="text-xl font-bold text-brand-950 sm:text-2xl">{s.title}</h2>
+          <p class="mt-3 text-slate-700">{s.benefit}</p>
+          <ul class="mt-4 list-disc space-y-1 pl-5 text-sm text-slate-600">
+            {s.points.map((point) => (
+              <li>{point}</li>
+            ))}
+          </ul>
+          <div class="mt-6">
+            <a href="/contact" class="btn-primary text-sm">
+              Request this service
+            </a>
+          </div>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="border-t border-slate-200 bg-white">
+    <div class="section text-center">
+      <h2 class="text-2xl font-bold text-brand-950">Not sure which service you need?</h2>
+      <p class="mx-auto mt-2 max-w-xl text-slate-600">
+        Describe the problem on the contact form — we’ll point you to the right fix and availability.
+      </p>
+      <a href="/contact" class="btn-primary mt-6">Request Service</a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const phoneTel = '+15125550199';
+
+const values = [
+  {
+    title: 'Show up when the listing converts',
+    text: 'People find plumbers on Google and expect a real human to respond. We treat every Maps and search lead like a priority — not a ticket in a queue.',
+  },
+  {
+    title: 'Price before the work starts',
+    text: 'Surprises belong in birthday parties, not invoices. You get a clear picture of cost and options before we commit tools to the job.',
+  },
+  {
+    title: 'Fix it right for Austin homes',
+    text: 'Older stock, slab foundations, hard water, and summer demand all show up in Central Texas plumbing. We work with that reality — not against it.',
+  },
+  {
+    title: 'Owner-operated accountability',
+    text: 'Bright Flow is built around direct ownership. You’re not passed between call centers; you’re talking to the people responsible for the work.',
+  },
+];
+---
+
+<BaseLayout
+  title="About Bright Flow Plumbing"
+  description="Meet Bright Flow Plumbing — an owner-operated Austin plumber focused on clear pricing, fast response, and converting Google Business Profile leads into finished jobs."
+>
+  <section class="bg-brand-900 text-white">
+    <div class="section py-14 sm:py-16">
+      <h1 class="text-3xl font-extrabold tracking-tight sm:text-4xl">About Bright Flow</h1>
+      <p class="mt-3 max-w-2xl text-lg text-brand-100">
+        Local Austin plumbing with a simple promise: answer clearly, price fairly, and get the water
+        flowing again.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="max-w-3xl space-y-4 text-slate-700 leading-relaxed">
+      <h2 class="text-2xl font-bold text-brand-950">Our story</h2>
+      <p>
+        Bright Flow Plumbing started for a reason most homeowners already know: finding a plumber who
+        actually calls back — and shows up with a straight answer — is harder than it should be.
+        We’re an owner-operated shop serving Austin and the metro, built around the leads that come
+        from Google Business Profile and local search.
+      </p>
+      <p>
+        Marcus and the Bright Flow team focus on the work that keeps households and small businesses
+        running: drains, leaks, water heaters, fixtures, and true emergencies. No corporate fluff.
+        No endless upsell scripts. Just licensed, insured plumbing with clear communication from the
+        first message to the final check.
+      </p>
+      <p>
+        When someone searches “plumber near me” at 7 p.m. with a overflowing toilet, they don’t need
+        a brochure. They need a number that answers and a plan. That’s the standard we hold ourselves
+        to.
+      </p>
+    </div>
+  </section>
+
+  <section class="border-y border-slate-200 bg-white">
+    <div class="section">
+      <h2 class="text-2xl font-bold text-brand-950 sm:text-3xl">Values we work by</h2>
+      <div class="mt-8 grid gap-6 sm:grid-cols-2">
+        {
+          values.map((v) => (
+            <div class="card">
+              <h3 class="font-semibold text-brand-900">{v.title}</h3>
+              <p class="mt-2 text-sm text-slate-600">{v.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="text-2xl font-bold text-brand-950">Serving Austin metro</h2>
+    <p class="mt-3 max-w-3xl text-slate-700">
+      From central Austin to Round Rock, Cedar Park, Pflugerville, Leander, and nearby communities —
+      if you’re in the metro and need a plumber who treats Google leads like real customers, request
+      service and we’ll confirm coverage for your address.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="/contact" class="btn-primary">Book Service</a>
+      <a href={`tel:${phoneTel}`} class="btn-call">Call Now</a>
+      <a href="/services" class="btn-secondary">View services</a>
+    </div>
+  </section>
+</BaseLayout>
