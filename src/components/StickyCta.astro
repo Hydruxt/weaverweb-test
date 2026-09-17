@@ -1,0 +1,16 @@
+---
+const phoneTel = '+15125550199';
+---
+
+<!-- Sticky mobile CTA bar — Call + Book always visible -->
+<div
+  class="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 p-3 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] backdrop-blur lg:hidden"
+  role="region"
+  aria-label="Quick actions"
+>
+  <div class="mx-auto flex max-w-lg gap-2">
+    <!-- TODO: Replace demo phone with Marcus's real number before launch -->
+    <a href={`tel:${phoneTel}`} class="btn-call flex-1 py-3 text-sm">Call Now</a>
+    <a href="/contact" class="btn-primary flex-1 py-3 text-sm">Book Service</a>
+  </div>
+</div>
